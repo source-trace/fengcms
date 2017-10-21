@@ -103,7 +103,9 @@ class fieldmanageController extends Controller{
      */
 	public function delete(){
         $id=$_GET['id'];
-		if(M($this->model)->fielddel($id) and M($this->model)->delete('id="'.$id.'"')){
+		M($this->model)->fielddel($id);
+		$re=M($this->model)->delete('id="'.$id.'"');
+		if($re){
 			echo '<meta http-equiv="refresh" content="0;url=?controller=fieldmanage&project='.$_GET['project'].'&operate=execution&type=exc&re=1">';
 		}else{
 			echo '<meta http-equiv="refresh" content="0;url=?controller=fieldmanage&project='.$_GET['project'].'&operate=execution&type=exc&re=0">';

@@ -18,7 +18,7 @@ defined('TPL_INCLUDE') or die( 'Restricted access');
 
 	define('DB_PASS','123456');													//密码
 
-	define('DB_NAME','cms');												//库名
+	define('DB_NAME','fengcms');												//库名
 
 	define('DB_TYPE','mysqli');													//类型 支持mysql和mysqli的方式，默认安装为mysqli方式
 
@@ -28,13 +28,13 @@ defined('TPL_INCLUDE') or die( 'Restricted access');
 
 /*---------------- 网站设置项（伪静态和后台认证码）---------*/
 
-	define('URL_TYPE', 1);														//访问地址方法，0动态1伪静态
+	define('URL_TYPE', 0);														//访问地址方法，0动态1伪静态
 
 	define('ADMIN_CODE','8888');												//认证码  只能是四位
 
 /*---------------- 网站调试模式是否开启 --------------------*/
 
-	define('DEBUGS', false);													//调试模式 true 开 false 关
+	define('DEBUGS', true);													//调试模式 true 开 false 关
 
 /*---------------- 系统核心选项（请勿修改） ----------------*/
 

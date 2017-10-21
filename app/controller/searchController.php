@@ -12,18 +12,21 @@
 class searchController extends Controller{
 
 	public function index(){
-		
-		if(!$this->project_exist($string)){
-			echo '<script type="text/javascript">alert("参数错误！");history.go(-1)</script>';
+
+		if($_POST['project']){
+			if(!$this->project_exist($_POST['project'])){
+				echo '<script type="text/javascript">alert("参数错误！");history.go(-1)</script>';
+			}
 		}
 		$_GET=lib_replace_end_tag_array($_GET);
 		$_POST=lib_replace_end_tag_array($_POST);
 		if(!empty($_POST)){
+
 			$_POST['tags']=strip_tags($_POST['tags']);
 			if(URL_TYPE==1){
                 echo '<meta http-equiv="refresh" content="0;url='.(($_POST['project'])?'?controller=search&project='.$_POST['project'].'&tags='.$_POST['tags']:'/tags/'.$_POST['tags'].'.html').'">';  
 			}else{
-				echo '<meta http-equiv="refresh" content="0;url=?controller=search'.(($_POST['project'])?'&project='.$_POST['project'].'&tags='.$_POST['tags']:'&tags='.$_POST['tags']).'.html">';
+				echo '<meta http-equiv="refresh" content="0;url=?controller=search'.(($_POST['project'])?'&project='.$_POST['project'].'&tags='.$_POST['tags']:'&tags='.$_POST['tags']).'">';
 			}
 		}else{
 
@@ -49,7 +52,7 @@ class searchController extends Controller{
 	}
 
 	public function project_exist($string){
-		if($this->module->where('project="'.$string.'" and status=1')->getcount()>0){
+		if(D("module")->where('project="'.$string.'" and status=1')->getcount()>0){
 			return $string;
 		}else{
 			return false;

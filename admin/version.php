@@ -1,1 +1,1 @@
-FengCms Beta 1.21
+FengCms Beta 1.23

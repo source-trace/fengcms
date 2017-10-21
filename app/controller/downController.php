@@ -13,13 +13,19 @@ class downController extends Controller{
 
 	public function index(){
 
-		$_GET['file']=strip_tags(base64_decode($_GET['file']));
-		if(file_exists(ROOT_PATH.$_GET['file'])){			
-			header("Content-Type: application/force-download");
-			header("Content-Disposition: attachment; filename=".basename($_GET['file'])); 
-			readfile(ROOT_PATH.$_GET['file']);
+		$_GET['file']=base64_decode($_GET['file']);
+		$_GET['file']=str_replace("..","",$_GET['file']);
+		$exp=explode("/",$_GET['file']);
+		if($exp[1]=="upload"){
+			if(file_exists(ROOT_PATH.$_GET['file'])){			
+				header("Content-Type: application/force-download");
+				header("Content-Disposition: attachment; filename=".basename($_GET['file'])); 
+				readfile(ROOT_PATH.$_GET['file']);
+			}else{
+				echo '<script type="text/javascript">alert("您要下载的文件不存在！");history.back();</script>';
+			}
 		}else{
-			echo '<script type="text/javascript">alert("您要下载的文件不存在！");history.back();</script>';
+				echo '<script type="text/javascript">alert("您要下载的文件不存在！");history.back();</script>';
 		}
 	}
 }

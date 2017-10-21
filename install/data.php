@@ -46,7 +46,7 @@ if(file_put_contents($config_file,$config)){
 			unset($sql_str);
 			$sql_str = '';
 	}
-
+ 
   echo '<script type="text/javascript">alert("安装成功！");</script>';
   echo '<meta http-equiv="refresh" content="0;url=index.php?step=5">';
 

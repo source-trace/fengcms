@@ -21,6 +21,12 @@ if(!$_GET['step'])$_GET['step']=1;
 
 $config_file=ROOT_PATH.'/config.php';
 $install_file=ABS_PATH.'/install.sql';
+
+if(file_exists(ROOT_PATH.'/upload/INSTALL')){
+  echo '<script type="text/javascript">alert("系统已安装，如需要重新安装，请手工删除upload目录下的INSTALL文件！");</script>';
+  echo '<meta http-equiv="refresh" content="0;url=/">';
+}
+
 switch($_GET['step']){
 
     case '1': //安装许可协议
@@ -123,9 +129,10 @@ switch($_GET['step']){
     case '5': //安装完成
 
 		include ABS_PATH."/step/step5.php";
-
+		$in = fopen(ROOT_PATH.'/upload/INSTALL','w');
+		fclose ($in);
 	break;
-
+/****
     case '6': //删除安装目录
 
 		if(rmdirs(ROOT_PATH.'/install') or rmdir(ROOT_PATH.'/install')){
@@ -139,6 +146,7 @@ switch($_GET['step']){
 		}
 
 	break;
+***/
 }
 
 function dir_writeable($dir) { 
@@ -159,27 +167,4 @@ function dir_writeable($dir) {
     } 
     return $writeable;              //返回值 
 }
-
-	/**
-	 * 删除文件夹
-	 *
- 	 * @access  public
-	 * @param	string $path		要删除的文件夹路径
-	 * @return	bool
-	 */
-	function rmdirs($path){
-		$error_level = error_reporting(0);
-		if ($dh = opendir($path)) {
-			while (false !== ($file=readdir($dh))) {
-				if ($file != '.' && $file != '..') {
-					$file_path = $path.'/'.$file;
-					is_dir($file_path) ? rmdirs($file_path) : unlink($file_path);
-				}
-			}
-			closedir($dh);
-		}
-		$result = rmdir($path);
-		error_reporting($error_level);
-		return $result;
-	}
 ?>

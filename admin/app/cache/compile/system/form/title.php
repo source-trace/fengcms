@@ -1,6 +1,0 @@
-<?php defined('TPL_INCLUDE') OR exit('Access Denied'); ?>
-<tr>
-	<th><?php if(($item)){echo $item;}?><?php if(($v['aliases'])){echo $v['aliases'];}?>:</th>
-	<td width="650"><input id="<?php if(($v['name'])){echo $v['name'];}?>" name="<?php if(($v['name'])){echo $v['name'];}?>" type="text" class="inputxt" style="width:300px" <?php if($v['must']=='0'){?>ignore="ignore"<?php }?> datatype="<?php if(($v['type_verification'])){echo $v['type_verification'];}?><?php if(($v['length'])){echo $v['length'];}?>" nullmsg="<?php if($v['nullmsg']){?><?php if(($v['nullmsg'])){echo $v['nullmsg'];}?><?php } else { ?>请填写信息！<?php }?>" errormsg="<?php if($v['errormsg']){?><?php if(($v['errormsg'])){echo $v['errormsg'];}?><?php } else { ?><?php if(($v['item'])){echo $v['item'];}?><?php if(($v['aliases'])){echo $v['aliases'];}?>要<?php if(($v['length'])){echo $v['length'];}?>个字符！<?php }?>" value="<?php if($info[$v['name']]){?><?php if(($info[$v['name']])){echo $info[$v['name']];}?><?php } else { ?><?php if(($v['defaults'])){echo $v['defaults'];}?><?php }?>"/></td>
-	<td><span class="article_notes colorf60">※：录入<?php if(($item)){echo $item;}?>标题，不要太长，不利于SEO。</span></td>
-</tr>

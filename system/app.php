@@ -85,7 +85,7 @@ import('core.*');
 //php 批量过滤post,get敏感数据 
 if (get_magic_quotes_gpc()) { 
 	$_GET	= stripslashes_array($_GET); 
-	$_POST	= stripslashes_array($_POST); 
+	$_POST	= stripslashes_array(removexss_array($_POST)); 
 }
 
 final class app {

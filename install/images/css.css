@@ -18,6 +18,9 @@ ul,dl,li,dd,dl { list-style:none;}
 img { border:none;}
 .w120 {width: 120px;}
 .none {display: none;}
+.f60 {color: #f60;font-weight: bold;padding: 0 5px;font-family:tahoma}
+.f00 {color: #f00;font-weight: bold;padding: 0 5px;font-family:tahoma}
+.c06f {color: #06f;font-size: 14px;}
 #step4 {background: #000;}
 #stepbox {position: absolute;left: 50%;top:50%;margin:-310px 0 0 -310px;width: 600px;height: 600px;background:url(anzhuang.png) 0 0 no-repeat;padding: 10px;}
 	#buzhou h1 {width: 600px;height: 190px;text-indent: -9999em;}

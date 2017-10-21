@@ -539,10 +539,5 @@ defined('TPL_INCLUDE') or die( 'Restricted access');
          echo '/?controller=down&file='.base64_encode($filename);
 	}
 
-	/*
-	//	万能标签函数
-	*/
-	function l($table,$func=""){
-		return M('module')->l($table,$func);
-	}
+
 ?>

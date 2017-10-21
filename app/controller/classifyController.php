@@ -16,8 +16,8 @@ class classifyController extends Controller{
 
 	public function __construct(){
 		$this->classify=D($this->d_name)->where(array(
-			'enname'	=>	$_GET['classify'],
-			'id'		=>	$_GET['classid']
+			'enname'	=>	lib_replace_end_tag($_GET['classify']),
+			'id'		=>	intval($_GET['classid'])
 			))->getone();
 	}
 

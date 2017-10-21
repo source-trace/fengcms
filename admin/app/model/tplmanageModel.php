@@ -14,11 +14,15 @@ class tplmanageModel extends model{
 
 
 	public function pathset($name,$type){
-		if($type=='tpl')	{ $files=ROOT_PATH.'/template/'.$name.'.html';}
-		if($type=='css')	{ $files=ROOT_PATH.'/css/'.$name.'.css';}
-		if($type=='scrap')	{ $files=ROOT_PATH.'/template/scrap/'.$name.'.html';}
-		if($type=='inc')	{ $files=ROOT_PATH.'/template/inc/'.$name.'.html';}
-		if($type=='show')	{ $files=ROOT_PATH.'/template/show/'.$name.'.html';}
+		if($type=='tpl')	{ $files=ROOT_PATH.'/template/'.lib_replace_end_tag($name).'.html';}
+		if($type=='css')	{ $files=ROOT_PATH.'/css/'.lib_replace_end_tag($name).'.css';}
+		if($type=='scrap')	{ $files=ROOT_PATH.'/template/scrap/'.lib_replace_end_tag($name).'.html';}
+		if($type=='inc')	{ $files=ROOT_PATH.'/template/inc/'.lib_replace_end_tag($name).'.html';}
+		if($type=='show')	{ $files=ROOT_PATH.'/template/show/'.lib_replace_end_tag($name).'.html';}
+		if(!file_exists($files)){
+		echo '<script type="text/javascript">alert("文件不存在！");</script>';
+		echo '<meta http-equiv="refresh" content="0;url=?controller=tplmanage">';
+		}
 		return $files;
 	}
 

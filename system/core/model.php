@@ -398,7 +398,7 @@ class model{
 
 		$x=1;
 
-		$path=DBBACKUP_PATH.date('Y-m-d_His');
+		$path=DBBACKUP_PATH.date('Y-m-d_His').rand(100,999);
 
 		$filename = date("Y-m-d_H.i.s"); //存放路径，默认存放到项目最外层
 		$size=2048;

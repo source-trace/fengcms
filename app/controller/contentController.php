@@ -15,7 +15,7 @@ class contentController extends Controller{
 
 
 	public function __construct(){
-		$this->content=M("module")->content($_GET['project'],$_GET['id']);
+		$this->content=M("module")->content(lib_replace_end_tag($_GET['project']),intval($_GET['id']));
 	}
 
 	public function index(){

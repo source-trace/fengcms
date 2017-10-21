@@ -1,2 +1,0 @@
-<?php defined('TPL_INCLUDE') OR exit('Access Denied'); ?>
-<input type="hidden" id="<?php if(($v['name'])){echo $v['name'];}?>" name="<?php if(($v['name'])){echo $v['name'];}?>" value="<?php if($info[$v['name']]){?><?php if(($info[$v['name']])){echo $info[$v['name']];}?><?php } else { ?>0<?php }?>">
