@@ -1,0 +1,6 @@
+<?php defined('TPL_INCLUDE') OR exit('Access Denied'); ?>
+<tr>
+	<th>选择模板:</th>
+	<td><input type="text" name="<?php if(($v['name'])){echo $v['name'];}?>" id="template_url" class="inputxt" style="width:300px" <?php if($v['must']=='0'){?>ignore="ignore"<?php }?> datatype="<?php if(($v['type_verification'])){echo $v['type_verification'];}?><?php if(($v['length'])){echo $v['length'];}?>" nullmsg="<?php if($v['nullmsg']){?><?php if(($v['nullmsg'])){echo $v['nullmsg'];}?><?php } else { ?>请填写信息！<?php }?>" errormsg="<?php if($v['errormsg']){?><?php if(($v['errormsg'])){echo $v['errormsg'];}?><?php } else { ?><?php if(($v['item'])){echo $v['item'];}?><?php if(($v['aliases'])){echo $v['aliases'];}?>要<?php if(($v['length'])){echo $v['length'];}?>个字符！<?php }?>" value="<?php if($info[$v['name']]){?><?php if(($info[$v['name']])){echo $info[$v['name']];}?><?php }elseif($project=='single') { ?>/<?php if(($project)){echo $project;}?>.html<?php } else { ?>/<?php if(($project)){echo $project;}?>_content.html<?php }?>"/> <input type="button" id="filemanage" value="浏览模板" class="inputxt" style="width:100px;height:30px;" /></td>
+	<td><span class="article_notes colorf60">※：可以自定义模版。默认模版是<?php if(($project)){echo $project;}?>_content.html</span></td>
+</tr>
